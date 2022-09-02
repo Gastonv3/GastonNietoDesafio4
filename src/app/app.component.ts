@@ -29,6 +29,8 @@ export class AppComponent implements OnDestroy {
       .listarAlumnos()
       .subscribe((result) => {
         this.listaAlumnos = result;
+        console.log(this.listaAlumnos);
+        console.log('sub', this.subcriptionAlumnos);
       });
 
     this.subcriptionAprobados = this.service
@@ -49,5 +51,8 @@ export class AppComponent implements OnDestroy {
   }
   cancelarSuscripcionAprobados() {
     this.subcriptionAprobados.unsubscribe();
+    this.subcriptionAlumnos.unsubscribe();
+
+    console.log(this.subcriptionAlumnos);
   }
 }
